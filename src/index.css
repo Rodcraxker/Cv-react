@@ -1,0 +1,219 @@
+/* src/index.css */
+
+/* Variables y Reseteo Básico */
+:root {
+    --color-primary: #03386e; 
+    --color-secondary: #aaabac; 
+    --color-tertiary: #085ddc; 
+    --color-background: #f4f6f9; 
+    --color-text: #333;
+    --color-light: #ffffff;
+    --font-family-sans: "Inter", "Arial", sans-serif;
+    --spacing-medium: 1.5rem;
+    --spacing-large: 2rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Necesario para Parallax y Scroll */
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    padding: 0; /* Quitamos el padding del body para el parallax */
+    height: 100vh;
+    overflow-y: auto; /* Permite el scroll principal */
+    perspective: 1px; /* CLAVE para el efecto Parallax */
+}
+
+/* EFECTO PARALLAX */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    /* REEMPLAZA esta URL con la ruta a tu imagen de fondo real */
+    background-image: url('URL_DE_TU_IMAGEN_DE_FONDO'); 
+    background-size: cover;
+    background-position: center;
+    /* Mueve hacia atrás (2px) y escala (3) para simular la distancia */
+    transform: translateZ(-2px) scale(3); 
+}
+/* FIN EFECTO PARALLAX */
+
+/* Estructura Principal */
+.cv-container {
+    max-width: 1200px;
+    margin: 20px auto; /* Agregamos margen aquí */
+    background-color: var(--color-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; /* Asegura que esté por encima del fondo (z-index: 1 implícito) */
+}
+
+/* Columna Izquierda (Datos Personales y Perfil) - ASIDE */
+.left-column {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-large);
+    width: 100%; 
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-medium);
+    border: 4px solid var(--color-light);
+}
+
+.personal-info h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.personal-info p, .aside-section li {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.aside-section {
+    padding-top: var(--spacing-medium);
+    margin-top: var(--spacing-medium);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.aside-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+}
+
+.aside-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Columna Derecha (Experiencia y Formación) - MAIN/SECTION */
+.right-column {
+    flex-grow: 1; 
+    padding: var(--spacing-large);
+}
+
+.main-section {
+    margin-bottom: var(--spacing-large);
+    padding-bottom: var(--spacing-medium);
+    border-bottom: 1px solid var(--color-background);
+}
+
+.main-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.main-section h2 {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--color-secondary);
+    padding-left: 10px;
+}
+
+.item-block {
+    margin-bottom: var(--spacing-medium);
+    padding-left: 10px;
+}
+
+.item-block h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+}
+
+.item-block p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.item-block .duration {
+    font-style: italic;
+    color: var(--color-tertiary);
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Habilidades como tags */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: #e0e6ed;
+    color: var(--color-primary);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Interactividad y Accesibilidad */
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e74c3c; 
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--color-tertiary);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #788f9e;
+    cursor: pointer;
+}
+
+/* MEDIA QUERY para diseño responsivo - Tablet y Desktop */
+@media (min-width: 768px) {
+    .cv-container {
+        flex-direction: row; 
+        min-height: 90vh; 
+        margin-top: 50px; /* Ajuste para el scroll en desktop */
+        margin-bottom: 50px;
+    }
+
+    .left-column {
+        width: 35%; 
+        min-height: 100%;
+    }
+
+    .right-column {
+        width: 65%; 
+    }
+}
