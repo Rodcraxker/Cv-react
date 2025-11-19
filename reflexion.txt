@@ -1,0 +1,16 @@
+Reflexión: React vs. Desarrollo con HTML/CSS/JS Puro
+
+La elección entre React y el desarrollo web tradicional (HTML, CSS y JS puro) 
+depende intrínsecamente de la complejidad del proyecto. La principal ventaja de React radica en su enfoque basado en componentes.
+
+Esto permite construir interfaces de usuario complejas y reutilizables de manera modular, mejorando drásticamente la mantenibilidad y escalabilidad. 
+Su uso del Virtual DOM optimiza las actualizaciones de la interfaz, logrando un rendimiento superior en aplicaciones con mucho estado y cambios constantes de datos, como las Single Page Applications (SPA). Además, el vasto ecosistema de herramientas y librerías que lo rodea acelera el desarrollo.
+
+
+Sin embargo, React presenta desafíos iniciales. La curva de aprendizaje es más pronunciada, ya que introduce conceptos nuevos como JSX, hooks y la gestión de estado centralizada. 
+
+A diferencia del desarrollo puro, que requiere solo un navegador, React necesita un entorno de build (como Webpack o Vite) para compilar y empaquetar el código, lo que añade complejidad a la configuración inicial. 
+Para proyectos pequeños o sitios web estáticos simples, usar React puede ser una "sobreingeniería", donde el JS puro sería más ligero y directo. 
+
+En esencia, React es la herramienta ideal para la gestión eficiente de la complejidad y la interactividad.
+
